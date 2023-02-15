@@ -6,16 +6,17 @@ pygame.init()
 
 # Define as propriedades de cada planeta
 planetas = []
+planetas_num = 2
 planetas_pos = [(0, 0), (125, 1), (200, 2), (300, 3), (400, 4), (500, 5), (600, 6), (900, 7)]
 planetas_vel = [(10, 100), (20, 200), (30, 300), (40, 400), (50, 500), (60, 600), (70, 700), (80, 800)]
 planetas_mass = []
-planetas_radius = [55, 5, 10, 15, 20, 25, 30, 35]
+planetas_radius = [75, 35, 10, 15, 20, 25, 30, 35]
 
 # Define a constante gravitacional
 G = 6.67430 * 10**-11 # m^3 kg^-1 s^-2
 
-for i in range(8):
-    planetas_mass.append(planetas_radius[i] * G)
+for i in range(planetas_num):
+    planetas_mass.append(planetas_radius[i] * G) 
 
 # Define a atualização da simulação
 # def update():
@@ -55,7 +56,7 @@ while running:
     screen.fill(background_color)
 
     # Desenha os planetas na tela
-    for i in range(8):
+    for i in range(planetas_num):
         circle_color = (0, 0, 255)
         circle_x = 1280/2.25 + planetas_pos[i][0]
         circle_y = 600/2.25 + planetas_pos[i][1]
@@ -65,7 +66,7 @@ while running:
     # Atualiza a tela
     pygame.display.flip()
 
-    pygame.time.wait(1000 / 60)
+    pygame.time.delay(16)
 
 # Finaliza o Pygame
 pygame.quit()
